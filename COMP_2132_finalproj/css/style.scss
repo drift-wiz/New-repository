@@ -1,0 +1,141 @@
+$h1colour: lightgrey;
+$backgroundcolour: rgb(25, 25, 36);
+$myfont: 'Montserrat', sans-serif;
+$fontcolor: white;
+$bodypadding: 69px;
+$bodydisplay: flex;
+$bodyjustifycontent: center;
+
+h1 {
+    color: $h1colour;
+}
+body {
+    background-color: $backgroundcolour;
+    font-family: $myfont;
+    color: $fontcolor;
+    padding: $bodypadding;
+    display: $bodydisplay;
+    justify-content: $bodyjustifycontent;
+}
+
+$wrapperbackground: rgb(46, 46, 65);
+$wrapperpadding: 40px;
+$wrapperdisplay: grid;
+$wrappergrid-template-columns: repeat(2, 1fr);
+$wrappergrid-template-rows: repeat(4, auto);
+$wrappergrid-template-areas:
+"title title"
+"letters images"
+"input images"
+"restart .";
+$wrappergrid-gap: 10px;
+$h1gridarea: title;
+
+.wrapper{
+    background-color: $wrapperbackground;
+    padding: $wrapperpadding;
+
+    display: $wrapperdisplay;
+    grid-template-columns: $wrappergrid-template-columns;
+    grid-template-rows: $wrappergrid-template-rows;
+    grid-template-areas:
+    $wrappergrid-template-areas;
+    grid-gap: $wrappergrid-gap;
+
+}
+
+h1 {
+    grid-area: $h1gridarea;
+}
+
+
+$hangmangridarea: letters;
+$hangmanpadding: 10px;
+$hangmanwidth: 100%;
+$hangmanheight: auto;
+$hangmanfont-size: 28px;
+
+.hangman-word {
+    grid-area: $hangmangridarea;
+    padding: $hangmanpadding;
+    width: $hangmanwidth;
+    height: $hangmanheight;
+    font-size: $hangmanfont-size;
+}
+
+$lettergridarea: input;
+$letterwidth: 90px;
+
+.letter {
+    grid-area: $lettergridarea;
+    width: $letterwidth;
+}
+
+$imagegridarea: images;
+$imagewidth: 200px;
+$imageheight: 200px;
+$imagepadding: 10px;
+$imageborder: 1px solid black;
+
+
+.image {
+    grid-area: $imagegridarea;
+    width: $imagewidth;
+    height: $imageheight;
+    padding: $imagepadding;
+    border: $imageborder;
+}
+
+$restartgridarea: restart;
+$restartdisplay: flex;
+$restartjustifycontent: center;
+$restartwidth: 120px;
+$restartheight: auto;
+$restartpadding: 1px;
+
+
+#restart {
+    grid-area: r$restartgridarea;
+    display: $restartdisplay;
+    justify-content: $restartjustifycontent;
+    width: $restartwidth;
+    height: $restartheight;
+    padding: $restartpadding;
+}
+
+$popupposition: fixed;
+$popupcolor: white;
+$popupbackgroundcolor: darkblue;
+$popuptransition: opacity 1s;
+$popupopacity: 0;
+$popuppadding: 5px;
+$popupfontsize: 14px;
+
+#popup{
+    position: $popupposition;
+    color: $popupcolor;
+    background-color: $popupbackgroundcolor;
+    transition: $popuptransition;
+    opacity: $popupopacity;
+    padding: $popuppadding;
+    font-size: $popupfontsize;
+}
+
+$wrapperdisplaymobile: grid;
+$wrappergrid-template-columnsmobile: 1fr;
+$wrappergrid-template-rowsmobile: 1fr;
+$wrappergrid-template-areas-mobile:
+"title"
+"letters"
+"images"
+"input"
+"restart";
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        display: $wrapperdisplaymobile;
+        grid-template-columns: $wrappergrid-template-columnsmobile;
+        grid-template-rows: $wrappergrid-template-rowsmobile;
+        grid-template-areas: $wrappergrid-template-areas-mobile;
+    }
+}
